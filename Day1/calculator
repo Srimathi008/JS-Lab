@@ -1,7 +1,7 @@
-let num1 = parseFloat(prompt("Enter the first number:"));
-let num2 = parseFloat(prompt("Enter the second number:"));
-let operation = prompt("Enter operation (+, -, *, /):");
-let result;
+const num1 = parseFloat(prompt("Enter the first number:"));
+const num2 = parseFloat(prompt("Enter the second number:"));
+const operation = prompt("Enter operation (+, -, *, /):");
+const result;
 
 switch (operation) {
   case '+':
