@@ -48,6 +48,9 @@
                         case "subtract":
                             result=num1 - num2;
                             break;
+                        case "divide":
+                            result=num1/num2;
+                            break;
                     }
                 }
                     document.getElementById("result").innerText=result
