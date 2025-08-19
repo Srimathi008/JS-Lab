@@ -17,7 +17,7 @@
 <body>
     <h2>Guess Program</h2>
     <input type="number" placeholder="Enter the number"id="num">
-    <button onclick="playgame()">guess the number</button>
+    <button onclick="playgame()">Guess the number</button>
     <p id="feedback"></p>
     <p id="count"></p>
     <script>
@@ -35,8 +35,8 @@
 
             }
             else{
-                document.getElementById("feedback").innerText="your guess is correct";
-                document.getElementById("feedback").innerText="your attempts"+count;
+                document.getElementById("feedback").innerText="Your guess is correct";
+                document.getElementById("count").innerText="Your attempts"+" "+count;
             }
         }
     </script>
