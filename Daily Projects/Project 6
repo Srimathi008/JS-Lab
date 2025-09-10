@@ -1,0 +1,80 @@
+let contacts = [
+  {
+    name: "Alice",
+    phone: "123-456-7890",
+    email: "alice@example.com",
+    displayInfo() {
+      const { name, phone, email } = this;
+      console.log(`Name: ${name}, Phone: ${phone}, Email: ${email}`);
+    }
+  },
+  {
+    name: "Bob",
+    phone: "987-654-3210",
+    email: "bob@example.com",
+    displayInfo() {
+      const { name, phone, email } = this;
+      console.log(`Name: ${name}, Phone: ${phone}, Email: ${email}`);
+    }
+  }
+];
+
+console.log("Dot notation:", contacts[0].name);
+console.log("Bracket notation:", contacts[0]["email"]);
+
+console.log("\nAll Contacts:");
+contacts.forEach(contact => contact.displayInfo());
+
+function addContacts(...newContacts) {
+  contacts.push(...newContacts);
+}
+
+addContacts(
+  {
+    name: "Charlie",
+    phone: "555-666-7777",
+    email: "charlie@example.com",
+    displayInfo() {
+      const { name, phone, email } = this;
+      console.log(`Name: ${name}, Phone: ${phone}, Email: ${email}`);
+    }
+  },
+  {
+    name: "Diana",
+    phone: "888-999-0000",
+    email: "diana@example.com",
+    displayInfo() {
+      const { name, phone, email } = this;
+      console.log(`Name: ${name}, Phone: ${phone}, Email: ${email}`);
+    }
+  }
+);
+
+console.log("\nAfter Adding Contacts:");
+contacts.forEach(contact => contact.displayInfo());
+
+let moreContacts = [
+  { name: "Eve", phone: "444-555-6666", email: "eve@example.com" }
+];
+contacts = [...contacts, ...moreContacts.map(c => ({
+  ...c,
+  displayInfo() {
+    const { name, phone, email } = this;
+    console.log(`Name: ${name}, Phone: ${phone}, Email: ${email}`);
+  }
+}))];
+
+console.log("\nAfter Merging Arrays:");
+contacts.forEach(contact => contact.displayInfo());
+
+const externalDisplay = function(prefix) {
+  const { name, phone, email } = this;
+  console.log(`${prefix} Name: ${name}, Phone: ${phone}, Email: ${email}`);
+};
+
+let john = { name: "John", phone: "111-222-3333", email: "john@example.com" };
+
+externalDisplay.call(john, "CALL →");
+externalDisplay.apply(john, ["APPLY →"]);
+let boundDisplay = externalDisplay.bind(john, "BIND →");
+boundDisplay();
