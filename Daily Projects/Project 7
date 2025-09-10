@@ -1,0 +1,34 @@
+class Book {
+  constructor(title, author, publishedYear) {
+    this.title = title;
+    this.author = author;
+    this.publishedYear = new Date(publishedYear); 
+  }
+
+  getSummary() {
+    return `${this.title} by ${this.author}, published in ${this.publishedYear.getFullYear()}`;
+  }
+}
+
+class EBook extends Book {
+  constructor(title, author, publishedYear, fileSize) {
+    super(title, author, publishedYear); 
+    this.fileSize = fileSize;
+  }
+
+  getSummary() {
+    return `${super.getSummary()} [File size: ${this.fileSize}MB]`;
+  }
+}
+
+let book1 = new Book("JavaScript Basics", "John Doe", "2015-06-15");
+let book2 = new Book("Mastering ES6", "Jane Smith", "2018-03-10");
+
+let ebook1 = new EBook("Learn React", "Emily Davis", "2021-08-01", 5);
+let ebook2 = new EBook("Node.js Guide", "Michael Lee", "2022-11-20", 8);
+
+console.log(book1.getSummary());
+console.log(book2.getSummary());
+
+console.log(ebook1.getSummary());
+console.log(ebook2.getSummary());
